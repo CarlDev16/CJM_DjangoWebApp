@@ -4,7 +4,6 @@ from .models import Student
 from .forms import StudentForm
 
 
-
 def student_create(request):
     if request.method == 'POST':
         form = StudentForm(request.POST)
@@ -28,6 +27,7 @@ def student_list(request):
         'registration/student_list.html',
         {'students': students}
     )
+
 
 def student_update(request, pk):
     student = get_object_or_404(Student, pk=pk)
@@ -64,7 +64,8 @@ def student_delete(request, pk):
         request,
         'registration/student_confirm_delete.html',
         {'student': student}
-    )    
+    )
+
 
 def student_dashboard(request):
     students = Student.objects.all()
@@ -76,14 +77,13 @@ def student_dashboard(request):
         .annotate(total=Count('id'))
         .order_by('program')
     )
-     
+
     year_summary = (
         students
         .values('year_level')
         .annotate(total=Count('id'))
         .order_by('year_level')
     )
-
 
     return render(
         request,
@@ -94,3 +94,8 @@ def student_dashboard(request):
             'year_summary': year_summary,
         }
     )
+
+
+
+ 
+  

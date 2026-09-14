@@ -27,4 +27,5 @@ urlpatterns = [
         views.student_dashboard,
         name='student_dashboard'
     ),
+    
 ]
