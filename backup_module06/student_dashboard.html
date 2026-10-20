@@ -1,0 +1,27 @@
+{% load static %}
+
+<h2>
+    Total Students:
+    <span id="student-count">0</span>
+</h2>
+
+<p id="loading-message">Loading students...</p>
+
+<p id="error-message"></p>
+
+<table border="1" id="student-table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Program</th>
+            <th>Year Level</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+
+    <tbody id="student-table-body">
+    </tbody>
+</table>
+
+<script src="{% static 'registration/js/student_dashboard.js' %}"></script>
